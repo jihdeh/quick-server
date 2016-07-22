@@ -1,0 +1,7 @@
+#! /usr/bin/env bash
+    NODE_ENV="development"\
+    DEBUG_LABELS="true"\
+    DEBUG="koa-mount"\
+    "$@"
+# ./private npm run watch
+# ./private npm run dev
