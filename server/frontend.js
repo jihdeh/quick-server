@@ -10,3 +10,4 @@ export default function Frontend() {
     .use(serve(path.join(__dirname, "../public")))
     .use(router.routes())
 }
+//over here, you can use it to display your api documentation on the index.html page
