@@ -48,5 +48,5 @@ visit:
 Now the beauty of this is, anytime there's an error with your api, it doesn't break the whole application
 Instead it logs the error, and returns an error message, and the app still continues to run as normal.
 
-
+Contributions are welcome.
 

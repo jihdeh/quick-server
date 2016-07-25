@@ -9,7 +9,7 @@ export default function* apiErrorHandler(next) {
     console.error(_error);
     const {
       status = 500,
-      message = error.stack || "Non-standard, nondescript error. Bug a dev to add messages to error objects, as described in https://github.com/kasra-co/kasra-web-app#errors, or at least throw a standard JS Error object. There is a collection of project-standard errors in lib/errors.js.",
+      message = error.stack || "Non-standard, nondescript error. Bug a dev to add messages to error objects",
       userMessage
     } = _error;
     const error = {status, message, userMessage};
