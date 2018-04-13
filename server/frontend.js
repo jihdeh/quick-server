@@ -4,10 +4,10 @@ import koa from "koa";
 import koaRouter from "koa-router";
 
 export default function Frontend() {
-  const server = new koa();
+  const server = koa();
   const router = koaRouter();
   return server
     .use(serve(path.join(__dirname, "../public")))
-    .use(router.routes());
+    .use(router.routes())
 }
 //over here, you can use it to display your api documentation on the index.html page
