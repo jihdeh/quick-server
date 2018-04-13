@@ -7,12 +7,14 @@ import Api from "./api";
 import Frontend from "./frontend";
 
 function App() {
-  const app = new koa();
+  const app = koa();
 
   forward(app);
-  app.use(mount("/", Frontend())).use(mount("/api", Api()));
-  //you will now make api calls with "/api" as default base
-  //for example GET => /api/getNotes, /api/postInfo
+  app
+    .use(mount("/", Frontend()))
+    .use(mount("/api", Api()))
+    //you will now make api calls with "/api" as default base
+    //for example GET => /api/getNotes, /api/postInfo
 
   return app;
 }
