@@ -11,6 +11,9 @@ api.use(bodyParser());
 router.get("/message", queryRoutes.fetchMessage);
 router.get("/throwError", queryRoutes.throwErrorByDefault);
 
-api.use(router.routes()).use(router.allowedMethods());
+
+api
+  .use(router.routes())
+  .use(router.allowedMethods());
 
 export default api;
