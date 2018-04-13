@@ -11,7 +11,7 @@ export default function Api() {
 
   api.use(cacheControl({maxage: 10 * 1000}));
   api.use(mount("/", endpointApi));
-  api.use(function *terminator() {
+  api.use(function terminator() {
     return; // Do not continue past the API request handlers into the frontend request handlers
   });
 

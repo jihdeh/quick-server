@@ -3,8 +3,8 @@ import koaRouter from "koa-router";
 import bodyParser from "koa-bodyparser";
 import queryRoutes from "./query-routes";
 
-const api = koa();
-const router = koaRouter();
+const api = new koa();
+const router = new koaRouter();
 
 api.use(bodyParser());
 
