@@ -5,7 +5,7 @@ import koaRouter from "koa-router";
 
 export default function Frontend() {
   const server = new koa();
-  const router = koaRouter();
+  const router = new koaRouter();
   return server
     .use(serve(path.join(__dirname, "../public")))
     .use(router.routes());

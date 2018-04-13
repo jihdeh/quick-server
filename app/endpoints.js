@@ -4,7 +4,7 @@ import bodyParser from "koa-bodyparser";
 import queryRoutes from "./query-routes";
 
 const api = new koa();
-const router = koaRouter();
+const router = new koaRouter();
 
 api.use(bodyParser());
 

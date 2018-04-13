@@ -1,27 +1,38 @@
 import log from "./log";
 import util from "util";
 
-export default function* apiErrorHandler(next) {
+export default async function apiErrorHandler(ctx, next) {
   try {
-    yield next;
+    await next();
   } catch (_error) {
     console.log("Caught API error:");
     console.error(_error);
     const {
       status = 500,
-      message = error.stack || "Non-standard, nondescript error. Bug a dev to add messages to error objects",
+      message = error.stack ||
+        "Non-standard, nondescript error. Bug a dev to add messages to error objects",
       userMessage
     } = _error;
-    const error = {status, message, userMessage};
+    const error = { status, message, userMessage };
 
     this.body = error;
     this.status = status;
 
     if (status >= 500) {
       this.app.emit("error", new Error(message), this);
-      log.error(message, {status, event: "response", request: this.request.href, error});
+      log.error(message, {
+        status,
+        event: "response",
+        request: this.request.href,
+        error
+      });
     } else {
-      log.info(message, {status, event: "response", request: this.request.href, error});
+      log.info(message, {
+        status,
+        event: "response",
+        request: this.request.href,
+        error
+      });
     }
   }
 }
