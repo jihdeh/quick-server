@@ -7,7 +7,7 @@ import Api from "./api";
 import Frontend from "./frontend";
 
 function App() {
-  const app = koa();
+  const app = new koa();
 
   forward(app);
   app

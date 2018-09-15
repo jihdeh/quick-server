@@ -6,7 +6,7 @@ import endpointApi from "../app/endpoints";
 
 
 export default function Api() {
-  const api = koa();
+  const api = new koa();
   api.use(apiErrorHandler);
 
   api.use(cacheControl({maxage: 10 * 1000}));
